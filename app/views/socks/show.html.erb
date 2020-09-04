@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @sock.code_name %>
+</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sock.full_name %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @sock.birthday %>
+</p>
+
+<p>
+  <strong>Interests:</strong>
+  <%= @sock.interests %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @sock.skills %>
+</p>
+
+<p>
+  <strong>Languages:</strong>
+  <%= @sock.languages %>
+</p>
+
+<p>
+  <strong>Operating system:</strong>
+  <%= @sock.operating_system %>
+</p>
+
+<p>
+  <strong>Mobile device:</strong>
+  <%= @sock.mobile_device %>
+</p>
+
+<p>
+  <strong>Neighborhood:</strong>
+  <%= @sock.neighborhood %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @sock.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @sock.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @sock.country %>
+</p>
+
+<%= link_to 'Edit', edit_sock_path(@sock) %> |
+<%= link_to 'Back', socks_path %>

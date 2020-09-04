@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_050943) do
+ActiveRecord::Schema.define(version: 2020_08_22_204643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "socks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "code_name"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.date "birthday"
+    t.text "interests"
+    t.text "skills"
+    t.text "languages"
+    t.string "operating_system"
+    t.string "mobile_device"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

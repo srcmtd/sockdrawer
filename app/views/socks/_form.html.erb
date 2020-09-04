@@ -1,0 +1,88 @@
+<%= form_with(model: sock, local: true) do |form| %>
+  <% if sock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sock.errors.count, "error") %> prohibited this sock from being saved:</h2>
+
+      <ul>
+        <% sock.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if sock.persisted? %>
+    <p>Codename</p>
+    <p><%= @sock.code_name %></p>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_select :birthday, start_year: Date.today.year - 90,
+      end_year: Date.today.year - 18, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interests %>
+    <%= form.text_area :interests %>
+  </div>
+
+  <div class="field">
+    <%= form.label :skills %>
+    <%= form.text_area :skills %>
+  </div>
+
+  <div class="field">
+    <%= form.label :languages %>
+    <%= form.text_area :languages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :operating_system %>
+    <%= form.text_field :operating_system %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile_device %>
+    <%= form.text_field :mobile_device %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neighborhood %>
+    <%= form.text_field :neighborhood %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
