@@ -5,7 +5,7 @@ class Sock < ApplicationRecord
 
   validates :code_name, presence: true
   
-  before_validation :set_code_name
+  before_validation :set_code_name, on: :create
 
   def full_name
     parts = [self.first_name, self.middle_name, self.last_name]
