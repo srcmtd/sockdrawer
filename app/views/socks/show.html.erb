@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2>
   <%= @sock.code_name %>
 </h2>
@@ -59,6 +57,6 @@
   <%= @sock.country %>
 </p>
 
-<%= link_to 'Edit', edit_sock_path(@sock) %> |
-<%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_sock_path(@sock), class: 'btn btn-secondary' %>
+<%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<%= link_to 'Back', :back, class: 'btn btn-light' %>

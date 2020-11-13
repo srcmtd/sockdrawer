@@ -16,73 +16,76 @@
     <p><%= @sock.code_name %></p>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="mb-3">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :middle_name %>
-    <%= form.text_field :middle_name %>
+  <div class="mb-3">
+    <%= form.label :middle_name, class: "form-label" %>
+    <%= form.text_field :middle_name, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="mb-3">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :birthday %>
-    <%= form.date_select :birthday, start_year: Date.today.year - 90,
-      end_year: Date.today.year - 18, prompt: true %>
+  <div class="mb-3">
+    <%= form.label :birthday, class: "form-label"  %>
+    <div class="input-group">
+      <%= form.date_select :birthday, { start_year: Date.today.year - 90,
+                                        end_year: Date.today.year - 18, prompt: true }, class: "form-select" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :interests %>
-    <%= form.text_area :interests %>
+  <div class="mb-3">
+    <%= form.label :interests, class: "form-label"   %>
+    <%= form.text_area :interests, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :skills %>
-    <%= form.text_area :skills %>
+  <div class="mb-3">
+    <%= form.label :skills, class: "form-label"   %>
+    <%= form.text_area :skills, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :languages %>
-    <%= form.text_area :languages %>
+  <div class="mb-3">
+    <%= form.label :languages, class: "form-label"   %>
+    <%= form.text_area :languages, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :operating_system %>
-    <%= form.text_field :operating_system %>
+  <div class="mb-3">
+    <%= form.label :operating_system, class: "form-label"   %>
+    <%= form.text_field :operating_system, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :mobile_device %>
-    <%= form.text_field :mobile_device %>
+  <div class="mb-3">
+    <%= form.label :mobile_device, class: "form-label"   %>
+    <%= form.text_field :mobile_device, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :neighborhood %>
-    <%= form.text_field :neighborhood %>
+  <div class="mb-3">
+    <%= form.label :neighborhood, class: "form-label"   %>
+    <%= form.text_field :neighborhood, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+  <div class="mb-3">
+    <%= form.label :city, class: "form-label"   %>
+    <%= form.text_field :city, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
+  <div class="mb-3">
+    <%= form.label :state, class: "form-label"   %>
+    <%= form.text_field :state, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
+  <div class="mb-3">
+    <%= form.label :country, class: "form-label"   %>
+    <%= form.text_field :country, class: "form-control"  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to 'Cancel', :back, class: "btn btn-link" %>
   </div>
 <% end %>

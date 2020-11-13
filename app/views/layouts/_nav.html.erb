@@ -1,5 +1,17 @@
-<h1>Sockdrawer</h1>
-<%= link_to 'Dashboard', root_path %>
-<%= link_to 'Socks', socks_path %>
-<hr/>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    🧦&nbsp;
+    <%= link_to 'Sockdrawer', root_path, class: 'navbar-brand' %>
 
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+        <li class="nav-item">
+	  <%= link_to 'Dashboard', root_path, 'class' => 'nav-link', 'aria-current' => 'page' %>
+        </li>
+        <li class="nav-item">
+	  <%= link_to 'Socks', socks_path, 'class' => 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
