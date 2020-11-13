@@ -7,6 +7,7 @@ class SocksController < ApplicationController
 
   def new
     @sock = Sock.new
+    @sock.set_full_name
   end
 
   def create

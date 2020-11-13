@@ -13,6 +13,12 @@ class Sock < ApplicationRecord
     parts.join ' '
   end
 
+  def set_full_name
+    self.first_name = Faker::Name.first_name
+    self.middle_name = Faker::Name.middle_name
+    self.last_name = Faker::Name.last_name
+  end
+
   private
 
   def set_code_name
