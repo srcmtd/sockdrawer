@@ -60,4 +60,5 @@
 </p>
 
 <%= link_to 'Edit', edit_sock_path(@sock) %> |
-<%= link_to 'Back', socks_path %>
+<%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', :back %>
