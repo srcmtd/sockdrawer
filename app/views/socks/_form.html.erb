@@ -34,7 +34,7 @@
   <div class="field">
     <%= form.label :birthday %>
     <%= form.date_select :birthday, start_year: Date.today.year - 90,
-      end_year: Date.today.year - 18, include_blank: true %>
+      end_year: Date.today.year - 18, prompt: true %>
   </div>
 
   <div class="field">
