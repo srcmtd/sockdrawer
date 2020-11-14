@@ -20,6 +20,47 @@ class Sock < ApplicationRecord
     self.last_name = Faker::Name.last_name
   end
 
+  def set_location
+    common_locations = [
+      ["Los Angeles", "California"],
+      ["San Diego", "California"],
+      ["San Francisco", "California"],
+      ["Oakland", "California"],
+      ["Berkeley", "California"],
+      ["Washington", "District of Columbia"],
+      ["Baltimore", "Maryland"],
+      ["Boston", "Massachusetts"],
+      ["Cambridge", "Massachusetts"],
+      ["Bethesda", "Maryland"],
+      ["Jersey City", "New Jersey"],
+      ["Newark", "New Jersey"],
+      ["Patterson", "New Jersey"],
+      ["Trenton", "New Jersey"],
+      ["New York City", "New York"],
+      ["Yonkers", "New York"],
+      ["Bend", "Oregon"],
+      ["Hillsboro", "Oregon"],
+      ["Portland", "Oregon"],
+      ["Philadelphia", "Pennsylvania"],
+      ["Memphis", "Tennessee"],
+      ["Nashville", "Tennessee"],
+      ["Austin", "Texas"],
+      ["Dallas", "Texas"],
+      ["Houston", "Texas"],
+      ["Round Rock", "Texas"],
+      ["San Antonio", "Texas"],
+      ["Bellevue", "Washington"],
+      ["Redmond", "Washington"],
+      ["Seattle", "Washington"],
+      ["Tacoma", "Washington"],
+    ]
+    choice = common_locations.sample
+
+    self.city = choice.first
+    self.state = choice.second
+    self.country = "United States"
+  end
+
   private
 
   def set_code_name
