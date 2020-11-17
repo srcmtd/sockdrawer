@@ -1,5 +1,5 @@
 class SocksController < ApplicationController
-  before_action :set_sock, only: [:show, :edit, :update, :destroy]
+  before_action :set_sock, only: [:show, :edit, :update, :clean, :dirty, :destroy]
 
   def index
     @socks = Sock.all
@@ -25,12 +25,34 @@ class SocksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /socks/1
-  # PATCH/PUT /socks/1.json
   def update
     respond_to do |format|
       if @sock.update(sock_params)
         format.html { redirect_to @sock, notice: 'Sock was successfully updated.' }
+        format.json { render :show, status: :ok, location: @sock }
+      else
+        format.html { render :edit }
+        format.json { render json: @sock.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def clean
+    respond_to do |format|
+      if @sock.clean!
+        format.html { redirect_to @sock, notice: "Sock was marked as 'clean.'" }
+        format.json { render :show, status: :ok, location: @sock }
+      else
+        format.html { render :edit }
+        format.json { render json: @sock.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def dirty
+    respond_to do |format|
+      if @sock.dirty!
+        format.html { redirect_to @sock, notice: "Sock was marked as 'dirty.'" }
         format.json { render :show, status: :ok, location: @sock }
       else
         format.html { render :edit }

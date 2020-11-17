@@ -1,8 +1,14 @@
-<h2>Socks</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Socks</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <%= link_to 'New Sock', new_sock_path, class: 'btn btn-sm btn-primary' %>
+  </div>
+</div>
 
 <table class="table table-light table-striped">
   <thead>
     <tr>
+      <th></th>
       <th>Code name</th>
       <th>First name</th>
       <th>Last name</th>
@@ -12,6 +18,13 @@
   <tbody>
     <% @socks.each do |sock| %>
       <tr>
+        <td>
+          <% if sock.dirty? %>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-circle-fill text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+            </svg>
+          <% end %>
+        </td>
         <td><%= link_to sock.code_name, sock %></td>
         <td><%= sock.first_name %></td>
         <td><%= sock.last_name %></td>
@@ -19,7 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Sock', new_sock_path %>

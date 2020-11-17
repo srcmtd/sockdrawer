@@ -2,6 +2,12 @@
   <%= @sock.code_name %>
 </h2>
 
+<% if @sock.dirty? %>
+  <div class="alert alert-warning" role="alert">
+    This Sock was marked dirty on <%= @sock.marked_dirty_at.to_s :long_ordinal %>
+  </div>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @sock.full_name %>
@@ -58,5 +64,10 @@
 </p>
 
 <%= link_to 'Edit', edit_sock_path(@sock), class: 'btn btn-secondary' %>
+<% if @sock.dirty? %>
+<%= link_to 'Clean', clean_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>
+<% else %>
+  <%= link_to 'Dirty', dirty_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+<% end %>
 <%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-<%= link_to 'Back', :back, class: 'btn btn-light' %>
+<%= link_to 'Back', :back, class: 'btn btn-link' %>

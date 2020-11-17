@@ -8,6 +8,18 @@ class Sock < ApplicationRecord
   
   before_validation :set_code_name, on: :create
 
+  def clean!
+    update! marked_dirty_at: nil
+  end
+
+  def dirty!
+    update! marked_dirty_at: Time.now
+  end
+
+  def dirty?
+    self.marked_dirty_at.present?
+  end
+
   def full_name
     parts = [self.first_name, self.middle_name, self.last_name]
     parts.compact!
