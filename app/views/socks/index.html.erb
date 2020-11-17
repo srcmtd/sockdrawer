@@ -12,6 +12,7 @@
       <th>Code name</th>
       <th>First name</th>
       <th>Last name</th>
+      <th>Location</th>
     </tr>
   </thead>
 
@@ -28,6 +29,7 @@
         <td><%= link_to sock.code_name, sock %></td>
         <td><%= sock.first_name %></td>
         <td><%= sock.last_name %></td>
+        <td><%= sock.city_and_state %></td>
       </tr>
     <% end %>
   </tbody>

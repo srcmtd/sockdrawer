@@ -20,6 +20,10 @@ class Sock < ApplicationRecord
     self.marked_dirty_at.present?
   end
 
+  def city_and_state
+    [self.city, self.state].compact.join ', '
+  end
+
   def full_name
     parts = [self.first_name, self.middle_name, self.last_name]
     parts.compact!
