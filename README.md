@@ -4,11 +4,21 @@ Sockdrawer is an alias identity manager for Red Teams, OSINT collectors,
 journalists, and privacy-conscious people. Its name comes from the term
 _[sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_\(Internet\))_.
 
-## Setup Instructions (Ubuntu/Debian)
+## Setup
 
 * Ruby 2.7.2
 * Rails 6
 * PostgreSQL 13
+
+### Docker and Compose
+
+```
+docker-compose up -d
+docker-compose exec web rails db:migrate RAILS_ENV=development
+open http://localhost:3000
+```
+
+### Ubuntu/Debian
 
 ```
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
