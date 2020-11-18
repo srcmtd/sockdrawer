@@ -13,7 +13,7 @@ class Sock < ApplicationRecord
   end
 
   def dirty!
-    update! marked_dirty_at: Time.now
+    update! marked_dirty_at: Time.current
   end
 
   def dirty?
