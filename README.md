@@ -1,10 +1,14 @@
-# sockdrawer
+# :socks: sockdrawer
 
-Sockdrawer is alias identity manager for Red Teams, OSINT collectors,
+Sockdrawer is an alias identity manager for Red Teams, OSINT collectors,
 journalists, and privacy-conscious people. Its name comes from the term
 _[sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_\(Internet\))_.
 
 ## Setup
+
+* Ruby 2.7
+* Rails 6
+* PostgreSQL 13
 
 ```
 $ git clone https://github.com/mattreduce/sockdrawer.git
