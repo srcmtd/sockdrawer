@@ -8,6 +8,9 @@ class Sock < ApplicationRecord
   
   before_validation :set_code_name, on: :create
 
+  scope :clean, -> { where(marked_dirty_at: nil) }
+  scope :dirty, -> { where.not(marked_dirty_at: nil) }
+
   def clean!
     update! marked_dirty_at: nil
   end

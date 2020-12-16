@@ -1,8 +1,12 @@
 class SocksController < ApplicationController
-  before_action :set_sock, only: [:show, :edit, :update, :clean, :dirty, :destroy]
+  before_action :set_sock, only: [:show, :edit, :update, :mark_clean, :mark_dirty, :destroy]
 
   def index
-    @socks = Sock.all
+    @socks = Sock.clean
+  end
+
+  def dirty
+    @socks = Sock.dirty
   end
 
   def new
@@ -37,7 +41,7 @@ class SocksController < ApplicationController
     end
   end
 
-  def clean
+  def mark_clean
     respond_to do |format|
       if @sock.clean!
         format.html { redirect_to @sock, notice: "Sock was marked as 'clean.'" }
@@ -49,7 +53,7 @@ class SocksController < ApplicationController
     end
   end
 
-  def dirty
+  def mark_dirty
     respond_to do |format|
       if @sock.dirty!
         format.html { redirect_to @sock, notice: "Sock was marked as 'dirty.'" }

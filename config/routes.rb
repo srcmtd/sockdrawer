@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   root to: 'socks#index'
 
   resources :socks do
-    put 'clean', on: :member
-    put 'dirty', on: :member
+    # GET /socks/dirty
+    get 'dirty', on: :collection
+
+    member do
+      # PUT /socks/:id/clean
+      put 'clean', to: 'socks#mark_clean'
+      # PUT /socks/:id/dirty
+      put 'dirty', to: 'socks#mark_dirty'
+    end
   end
 end
