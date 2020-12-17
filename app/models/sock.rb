@@ -83,6 +83,6 @@ class Sock < ApplicationRecord
   private
 
   def set_code_name
-    self.code_name = CodenameGenerator.get
+    self.code_name ||= CodenameGenerator.get
   end
 end
