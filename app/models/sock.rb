@@ -4,6 +4,7 @@ class Sock < ApplicationRecord
   self.implicit_order_column = "created_at"
 
   validates :code_name, presence: true
+  validates :email, uniqueness: true, allow_nil: true
   validates :first_name, uniqueness: { scope: :last_name }
   
   before_validation :set_code_name, on: :create
