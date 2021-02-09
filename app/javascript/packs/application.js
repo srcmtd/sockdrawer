@@ -18,3 +18,5 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+import 'bootstrap-icons/font/bootstrap-icons.css'
