@@ -68,6 +68,11 @@
   <%= @sock.country %>
 </p>
 
+<p>
+  <strong>Notes:</strong>
+  <%= @sock.notes %>
+</p>
+
 <%= link_to 'Edit', edit_sock_path(@sock), class: 'btn btn-secondary' %>
 <% if @sock.dirty? %>
 <%= link_to 'Clean', clean_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>

@@ -90,6 +90,11 @@
   </div>
 
   <div class="mb-3">
+    <%= form.label :notes, class: "form-label"   %>
+    <%= form.text_area :notes, class: "form-control"  %>
+  </div>
+
+  <div class="mb-3">
     <%= form.submit class: "btn btn-primary" %>
     <%= link_to 'Cancel', :back, class: "btn btn-link" %>
   </div>

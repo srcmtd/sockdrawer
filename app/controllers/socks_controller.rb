@@ -81,6 +81,6 @@ class SocksController < ApplicationController
 
 
   def sock_params
-    params.require(:sock).permit(:code_name, :email, :first_name, :middle_name, :last_name, :birthday, :interests, :skills, :languages, :operating_system, :mobile_device, :neighborhood, :city, :state, :country)
+    params.require(:sock).permit(:code_name, :email, :first_name, :middle_name, :last_name, :birthday, :interests, :skills, :languages, :operating_system, :mobile_device, :neighborhood, :city, :state, :country, :notes)
   end
 end
