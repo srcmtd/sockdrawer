@@ -3,6 +3,8 @@ require_relative '../../lib/codename_generator'
 class Sock < ApplicationRecord
   self.implicit_order_column = "created_at"
 
+  has_rich_text :notes
+
   validates :code_name, presence: true
   validates :email, uniqueness: true, allow_blank: true
   validates :first_name, uniqueness: { scope: :last_name }
