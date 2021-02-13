@@ -20,8 +20,6 @@ gem 'nokogiri', '>= 1.11.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootsnap', '>= 1.4.2', require: false
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'cucumber-rails', require: false
