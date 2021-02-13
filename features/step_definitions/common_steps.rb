@@ -1,5 +1,6 @@
 When('I fill in Notes with {string}') do |value|
   find("trix-editor#sock_notes").set(value)
+  sleep 1
 end
 
 When('I fill in {string} with {string}') do |field, value|
