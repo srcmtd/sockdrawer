@@ -12,7 +12,7 @@
   },
   "version": "0.1.0",
   "engines": {
-    "node": "15.6.0",
+    "node": "15.13.0",
     "yarn": "1.22.4"
   },
   "devDependencies": {
