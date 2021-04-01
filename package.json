@@ -7,6 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "ssri": "^8.0.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",
     "y18n": "^4.0.1"
