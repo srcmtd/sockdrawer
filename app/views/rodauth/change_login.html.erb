@@ -1,3 +1,5 @@
+<h2>Change email address</h2>
+
 <%= form_tag rodauth.change_login_path, method: :post do %>
   <%= render "login_field" %>
   <%= render "login_confirm_field" if rodauth.require_login_confirmation? %>

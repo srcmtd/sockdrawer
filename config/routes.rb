@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'socks#index'
 
+  get 'account', to: 'rodauth#account'
+
   resources :socks do
     # GET /socks/dirty
     get 'dirty', on: :collection
