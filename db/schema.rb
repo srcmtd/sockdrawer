@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_034106) do
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.citext "email", null: false
     t.string "status", default: "unverified", null: false
-    t.index ["email"], name: "index_accounts_on_email", unique: true, where: "((status)::text = ANY ((ARRAY['unverified'::character varying, 'verified'::character varying])::text[]))"
+    t.index ["email"], name: "index_accounts_on_email", unique: true, where: "((status)::text = ANY (ARRAY[('unverified'::character varying)::text, ('verified'::character varying)::text]))"
   end
 
   create_table "action_text_rich_texts", force: :cascade do |t|
