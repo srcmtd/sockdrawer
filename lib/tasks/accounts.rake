@@ -4,7 +4,7 @@ require 'securerandom'
 namespace :accounts do
   desc "Create an Account"
   task create: :environment do
-    exit unless ENV.has_key?('EMAIL')
+    abort("Usage: EMAIL=admin@example.com rake accounts:create") unless ENV.has_key?('EMAIL')
 
     email = ENV['EMAIL']
     password = SecureRandom.uuid
