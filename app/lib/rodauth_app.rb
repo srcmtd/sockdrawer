@@ -46,6 +46,11 @@ class RodauthApp < Rodauth::Rails::App
     create_password_changed_email do
       RodauthMailer.password_changed(email_to)
     end
+
+    before_create_account_route do
+      request.halt
+    end
+
     # create_email_auth_email do
     #   RodauthMailer.email_auth(email_to, email_auth_email_link)
     # end

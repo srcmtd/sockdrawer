@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-	before_action :authenticate
+  before_action :authenticate
 
-	private
-
+  private
 	def authenticate
 		rodauth.require_authentication
 	end

@@ -1,8 +1,5 @@
-<% unless rodauth.login_form_footer_links.empty? %>
-  <h2>Other Options</h2>
-  <ul>
-    <% rodauth.login_form_footer_links.sort.each do |_, link, text| %>
-      <li><%= link_to text, link %></li>
-    <% end %>
-  </ul>
-<% end %>
+<h2>Other Options</h2>
+<ul>
+  <li><%= link_to 'Forgot Password?', rodauth.reset_password_request_path %></li>
+  <li><%= link_to 'Resend Verify Account Information', rodauth.verify_account_resend_path %></li>
+</ul>
