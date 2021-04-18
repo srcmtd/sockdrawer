@@ -1,83 +1,110 @@
-<h2>
-  <%= @sock.code_name %>
-</h2>
+<div class="row">
+  <div class="col">
 
-<% if @sock.dirty? %>
-  <div class="alert alert-warning" role="alert">
-    This Sock was marked dirty on <%= @sock.marked_dirty_at.to_s :long_ordinal %>
+    <h2><%= @sock.code_name %></h2>
+
+    <% if @sock.dirty? %>
+      <div class="alert alert-warning" role="alert">
+        This Sock was marked dirty on <%= @sock.marked_dirty_at.to_s :long_ordinal %>
+      </div>
+    <% end %>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @sock.full_name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @sock.email %>
+    </p>
+
+    <p>
+      <strong>Birthday:</strong>
+      <%= @sock.birthday %>
+    </p>
+
+    <p>
+      <strong>Interests:</strong>
+      <%= @sock.interests %>
+    </p>
+
+    <p>
+      <strong>Skills:</strong>
+      <%= @sock.skills %>
+    </p>
+
+    <p>
+      <strong>Languages:</strong>
+      <%= @sock.languages %>
+    </p>
+
+    <p>
+      <strong>Operating system:</strong>
+      <%= @sock.operating_system %>
+    </p>
+
+    <p>
+      <strong>Mobile device:</strong>
+      <%= @sock.mobile_device %>
+    </p>
+
+    <p>
+      <strong>Neighborhood:</strong>
+      <%= @sock.neighborhood %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @sock.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @sock.state %>
+    </p>
+
+    <p>
+      <strong>Country:</strong>
+      <%= @sock.country %>
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      <%= @sock.notes %>
+    </p>
+
+    <%= link_to 'Edit', edit_sock_path(@sock), class: 'btn btn-secondary' %>
+    <% if @sock.dirty? %>
+    <%= link_to 'Clean', clean_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>
+    <% else %>
+      <%= link_to 'Dirty', dirty_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+    <% end %>
+    <%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <%= link_to 'Back', :back, class: 'btn btn-link' %>
+
   </div>
-<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @sock.full_name %>
-</p>
+  <div class="col">
+    <h3>Updates</h3>
 
-<p>
-  <strong>Email:</strong>
-  <%= @sock.email %>
-</p>
+    <%= form_for [@sock, Update.new] do |f| %>
+      <div class="mb-3">
+        <%= f.label :notes, body: "form-label"   %>
+        <%= f.rich_text_area :body, class: "form-control"  %>
+      </div>
+      <div class="mb-3">
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @sock.birthday %>
-</p>
-
-<p>
-  <strong>Interests:</strong>
-  <%= @sock.interests %>
-</p>
-
-<p>
-  <strong>Skills:</strong>
-  <%= @sock.skills %>
-</p>
-
-<p>
-  <strong>Languages:</strong>
-  <%= @sock.languages %>
-</p>
-
-<p>
-  <strong>Operating system:</strong>
-  <%= @sock.operating_system %>
-</p>
-
-<p>
-  <strong>Mobile device:</strong>
-  <%= @sock.mobile_device %>
-</p>
-
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @sock.neighborhood %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @sock.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @sock.state %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @sock.country %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @sock.notes %>
-</p>
-
-<%= link_to 'Edit', edit_sock_path(@sock), class: 'btn btn-secondary' %>
-<% if @sock.dirty? %>
-<%= link_to 'Clean', clean_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>
-<% else %>
-  <%= link_to 'Dirty', dirty_sock_path(@sock), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
-<% end %>
-<%= link_to 'Destroy', @sock, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-<%= link_to 'Back', :back, class: 'btn btn-link' %>
+    <% @updates.each do |update| %>
+      <div class="card mb-3">
+        <h6 class="card-header"><%= update.created_at.strftime("%A, %d %b %Y %l:%M %p") %></h5>
+        <div class="card-body">
+          <%= update.body %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

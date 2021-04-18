@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_034106) do
+ActiveRecord::Schema.define(version: 2021_04_18_044009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -101,10 +101,19 @@ ActiveRecord::Schema.define(version: 2021_04_01_034106) do
     t.text "notes"
   end
 
+  create_table "updates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "body"
+    t.uuid "sock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sock_id"], name: "index_updates_on_sock_id"
+  end
+
   add_foreign_key "account_login_change_keys", "accounts", column: "id"
   add_foreign_key "account_password_hashes", "accounts", column: "id"
   add_foreign_key "account_password_reset_keys", "accounts", column: "id"
   add_foreign_key "account_remember_keys", "accounts", column: "id"
   add_foreign_key "account_verification_keys", "accounts", column: "id"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "updates", "socks"
 end

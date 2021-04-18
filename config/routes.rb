@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'account', to: 'rodauth#account'
 
   resources :socks do
+    resources :updates
+
     # GET /socks/dirty
     get 'dirty', on: :collection
 

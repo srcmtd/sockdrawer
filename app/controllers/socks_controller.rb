@@ -5,6 +5,10 @@ class SocksController < ApplicationController
     @socks = Sock.clean
   end
 
+  def show
+    @updates = @sock.updates
+  end
+
   def dirty
     @socks = Sock.dirty
   end
