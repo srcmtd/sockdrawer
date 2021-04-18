@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: sockdrawer_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("PGHOST", "localhost") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: sockdrawer_test
+  username: postgres
+  password: postgres
