@@ -6,7 +6,7 @@ _[sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_\(Internet\))_.
 
 ## Setup
 
-* Ruby 2.7.2
+* Ruby 2.7.3
 * Rails 6
 * PostgreSQL 13
 
@@ -29,8 +29,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 \curl -sSL https://get.rvm.io | bash
 
 source /etc/profile.d/rvm.sh
-rvm install 2.7.2
-rvm use 2.7.2 --default
+rvm install 2.7.3
+rvm use 2.7.3 --default
 gem install bundler
 
 sudo apt update
