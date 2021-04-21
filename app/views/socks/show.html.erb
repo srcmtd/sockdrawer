@@ -90,8 +90,8 @@
 
     <%= form_for [@sock, Update.new] do |f| %>
       <div class="mb-3">
-        <%= f.label :notes, body: "form-label"   %>
-        <%= f.rich_text_area :body, class: "form-control"  %>
+        <%= f.label :notes, class: "form-label visually-hidden" %>
+        <%= f.rich_text_area :body, class: "form-control" %>
       </div>
       <div class="mb-3">
         <%= f.submit "Post", class: "btn btn-primary" %>
