@@ -6,7 +6,7 @@ class SocksController < ApplicationController
   end
 
   def show
-    @updates = @sock.updates
+    @updates = @sock.updates.order(created_at: :desc)
   end
 
   def dirty
